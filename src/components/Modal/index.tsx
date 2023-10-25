@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { getTokenDataBySymbol } from "../utils/getTokenData";
+import { getTokenDataBySymbol } from "../../utils/getTokenData";
 
 type Props = {
   isOpen: boolean;
@@ -42,7 +42,7 @@ function Modal({
             exit={{ opacity: 0 }}
             className="absolute h-screen w-screen flex items-center justify-center left-0 top-0 bg-[#0B0819]/90 z-20 px-[16px] md:px-0"
           >
-            <div className="md:w-[410px] md:h-[461px] relative rounded-[18px] bg-gradient-to-b from-[#27487E] to-[#181627] to-30% bg-[#181627] btn-gradient-1 p-[1px]">
+            <div className="w-[410px] md:h-[461px] relative rounded-[18px] bg-gradient-to-b from-[#27487E] to-[#181627] to-30% bg-[#181627] btn-gradient-1 p-[1px]">
               <div className="bg-[#181627] py-[50px] px-[24px] md:px-[45px] h-full rounded-[18px]">
                 <button
                   className="absolute top-0 right-0 m-[12px]"

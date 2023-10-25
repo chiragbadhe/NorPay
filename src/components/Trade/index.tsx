@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Modal from "../Modal";
 import axios from "axios";
 import { io } from "socket.io-client";
-import { getTokenDataBySymbol } from "../utils/getTokenData";
+import { getTokenDataBySymbol } from "../../utils/getTokenData";
 import useUSDTPrice from "@/hooks/useUsdtPrice";
 
 type Props = {};

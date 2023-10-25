@@ -1,4 +1,4 @@
-import { tokenData } from "../Trade/tokens-data";
+import { tokenData } from "../components/Trade/tokens-data";
 
 export function getTokenDataBySymbol(symbol: string) {
     const tokenSymbol = symbol.slice(0, -4).toLowerCase();
