@@ -4,6 +4,7 @@ import Modal from "../Modal";
 import axios from "axios";
 import { io } from "socket.io-client";
 import { getTokenDataBySymbol } from "../utils/getTokenData";
+import useUSDTPrice from "@/hooks/useUsdtPrice";
 
 type Props = {};
 
@@ -24,6 +25,8 @@ function TradePage({}: Props) {
 
   const [prices, setPrices] = useState<TokenPrices>({});
   const [selectedToken, setSelectedToken] = useState<string>("BTCUSDT");
+
+  const { usdtPrice, loading, error } = useUSDTPrice();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -151,7 +154,7 @@ function TradePage({}: Props) {
           <div className="flex items-center justify-between">
             <span className="text-[14px] text-[#C5C5C5]">Current Value</span>
             <span className="text-[#627EEA] text-[24px] font-semibold">
-              ₹ {prices[selectedToken] * 80}
+              ₹ {(prices[selectedToken] * (usdtPrice as any)).toLocaleString()}
             </span>
           </div>
 
@@ -209,7 +212,9 @@ function TradePage({}: Props) {
               <span className="text-[22px] font-semibold text-[#6F6F7E]">
                 {inrAmount !== null
                   ? formatScientificNumber(
-                      (inrAmount as any) / 80 / prices[selectedToken]
+                      (inrAmount as any) /
+                        (usdtPrice as any) /
+                        prices[selectedToken]
                     )
                   : "N/A"}
               </span>

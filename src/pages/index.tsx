@@ -4,7 +4,7 @@ import TradePage from "@/components/Trade";
 
 export default function Home() {
   return (
-    <main className="w-screen overflow-hidden duration-300 transition">
+    <main className="w-screen overflow-hidden duration-300 transition font-poppins">
       <MainHeader />
       <TradePage />
     </main>

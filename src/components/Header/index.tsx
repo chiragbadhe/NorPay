@@ -78,13 +78,13 @@ function MainHeader({}: Props) {
 
                 <div>
                   <div className="py-[14px] px-[16px]">
-                    <div className="p-[1px] bg-gradient-to-b from-[#A3ABE8] to-[#A3ABE8]/10  rounded-full mt-[12px] ">
+                    <div className="p-[1px] bg-gradient-to-b from-[#A3ABE8] to-[#A3ABE8]/10  rounded-full mt-[12px] font-barlow ">
                       <ConnectKitButton.Custom>
                         {({ isConnected, show, truncatedAddress, ensName }) => {
                           return (
                             <button
                               onClick={show}
-                              className="px-[17px] py-[10px] w-full header-Button-Gradient rounded-full text-[17px] font-bold"
+                              className="px-[17px] py-[10px] w-full header-Button-Gradient rounded-full text-[17px] font-bold "
                             >
                               {isConnected
                                 ? !ensName
@@ -122,7 +122,7 @@ function MainHeader({}: Props) {
           </button>
         </div>
         <div className="py-[14px] hidden md:flex">
-          <div className="p-[1px] bg-gradient-to-b from-[#A3ABE8] to-[#A3ABE8]/10  rounded-full">
+          <div className="p-[1px] bg-gradient-to-b from-[#A3ABE8] to-[#A3ABE8]/10  rounded-full font-barlow">
             <ConnectKitButton.Custom>
               {({ isConnected, show, truncatedAddress, ensName }) => {
                 return (
