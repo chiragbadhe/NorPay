@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <WagmiConfig config={config}>
-        <ConnectKitProvider>
+        <ConnectKitProvider theme="midnight">
           <Component {...pageProps} />
         </ConnectKitProvider>
       </WagmiConfig>
