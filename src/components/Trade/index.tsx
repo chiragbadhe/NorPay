@@ -93,7 +93,7 @@ function TradePage({}: Props) {
 
   useEffect(() => {
     updateFilteredTokens(searchQuery);
-  }, [searchQuery]);
+  }, [searchQuery, updateFilteredTokens]);
 
   const handleInrAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
