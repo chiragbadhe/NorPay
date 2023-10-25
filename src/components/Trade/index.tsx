@@ -34,15 +34,18 @@ function TradePage({}: Props) {
   };
 
   // Update the list when user search
-  const updateFilteredTokens = useCallback((query: string) => {
-    const filtered = Object.keys(prices)
-      .filter((symbol) => symbol.toLowerCase().includes(query.toLowerCase()))
-      .reduce((obj, key) => {
-        obj[key] = prices[key];
-        return obj;
-      }, {} as TokenPrices);
-    setFilteredTokens(filtered);
-  }, []);
+  const updateFilteredTokens = useCallback(
+    (query: string) => {
+      const filtered = Object.keys(prices)
+        .filter((symbol) => symbol.toLowerCase().includes(query.toLowerCase()))
+        .reduce((obj, key) => {
+          obj[key] = prices[key];
+          return obj;
+        }, {} as TokenPrices);
+      setFilteredTokens(filtered);
+    },
+    [prices]
+  );
 
   useEffect(() => {
     // WebSocket connection to Binance
@@ -215,7 +218,7 @@ function TradePage({}: Props) {
 
           <div className="mt-[50px]">
             <div className="p-[1px] bg-gradient-to-b from-[#A3ABE8] to-[#A3ABE8]/10  rounded-full">
-              <button className="py-[12px] w-full header-Button-Gradient  rounded-full text-[17px] font-bold">
+              <button className="py-[12px] w-full header-Button-Gradient rounded-full text-[17px] font-bold">
                 Buy
               </button>
             </div>
