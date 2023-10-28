@@ -7,7 +7,7 @@ interface UseUSDTPriceResponse {
   error: string | null;
 }
 
-// Custom hook to fetch USDT price
+// Custom hook to fetch USDT price in INR
 function useUSDTPrice(): UseUSDTPriceResponse {
   const [usdtPrice, setUSDTPrice] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,12 +19,12 @@ function useUSDTPrice(): UseUSDTPriceResponse {
         const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
           params: {
             ids: 'tether',
-            vs_currencies: 'usd',
+            vs_currencies: 'inr', // Change the currency to 'inr' for Indian Rupees
           },
         });
 
         if (response.status === 200) {
-          const price = response.data.tether.usd;
+          const price = response.data.tether.inr; // Use 'inr' to access the price in Indian Rupees
           setUSDTPrice(price.toString());
         } else {
           setError('Failed to fetch USDT price.');

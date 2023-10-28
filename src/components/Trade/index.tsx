@@ -121,6 +121,13 @@ function TradePage({}: Props) {
     }
   };
 
+  const formattedPrice = (
+    prices[selectedToken] * (usdtPrice as any)
+  ).toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
+
   return (
     <main
       className={`flex flex-col items-center ${
@@ -154,7 +161,7 @@ function TradePage({}: Props) {
           <div className="flex items-center justify-between">
             <span className="text-[14px] text-[#C5C5C5]">Current Value</span>
             <span className="text-[#627EEA] text-[24px] font-semibold">
-              ₹ {(prices[selectedToken] * (usdtPrice as any)).toLocaleString()}
+              {formattedPrice}
             </span>
           </div>
 
